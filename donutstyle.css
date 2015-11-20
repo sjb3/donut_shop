@@ -1,0 +1,76 @@
+
+
+body {
+	background-image: url('./img/keepdonuts.png');
+	background-size: cover;
+	
+}
+
+/*body::after{
+	opacity: 0.5;
+
+}*/
+
+header {
+
+	text-align: center;
+	font-family: monospace;
+	color: deeppink;
+	
+}
+h3 {
+
+	font-family: cursive;
+	background-color: white;
+	font-weight: bold;
+	color: #8625B3;
+	width:1000px;
+	margin: 20px;
+	padding: 10px;
+	border: solid;
+}
+
+table {
+	background-color: white;
+	width:1000px;
+	margin: 20px;
+	padding: 10px;
+	border: solid;
+	border-width: 4px;
+
+}
+
+td {
+	width: 300px;
+	text-align: center;
+	padding: 10px;
+	font-weight: bolder;
+
+}
+form {
+	font-size: 30px;
+	font-color: blue;
+	text-align: center;
+}
+
+/*div {
+	width: 200px;
+  	height: 200px;
+  	display: block;
+  	position: relative;}
+
+div::after {
+  content: "";
+  background: url(keepdonuts.png);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}*/
+#main {
+	font-weight: bold;
+	color: DarkTurquoise;
+}

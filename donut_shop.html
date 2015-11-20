@@ -1,0 +1,75 @@
+<html>
+<title>Sinful!</title>
+
+<link href='donutstyle.css' rel='stylesheet' type='text/css'></link>
+
+<body id='corp'>
+<header>
+    
+    <h1><strong>World First HEALTHY Donut shop; believe or not!</strong></h1>
+    <h2><em>:Do you dream in organics?</em></h2>
+    
+    <form id="userInput">
+        <label for="location">Location: </label>
+        <input id="location" name="location" type="text">
+          <div id="locationAlert"></div>
+        
+        <label for="minCustomersPerHour">Minimum Customers per Hour: </label>
+        <input id="minCustomersPerHour" name="minCustomersPerHour" type="number">
+          <div id="minCustAlert"></div>
+        
+        <label for="maxCustomersPerHour">Maximum Customers per Hour: </label>
+        <input id="maxCustomersPerHour" name="maxCustomersPerHour" type="number">
+           <div id="maxCustAlert"></div>
+        
+        <label for="avrgDonutsPerCust">Average Donuts Per Customer: </label>
+        <input id="avrgDonutsPerCust" name="avrgDonutsPerCust" type="number">
+          <div id="avrgDonutPerCustAlert"></div>
+         <button id="submit" type="submit">Create New Location</button>
+        <button id="reset" type="reset">Reset</button>
+      </form>
+      <h3> *** Your Dreamy Donuts Available Now in Seattle! ***
+      </h3>
+ <!--  Maybe replaced according to js --> 
+  <table id="myTable" class='main'>
+    <thead>
+      <tr id="time">
+        <td>Locations</td>
+        <td>7:00 AM</td>
+        <td>8:00 AM</td>
+        <td>9:00 AM</td>
+        <td>10:00 AM</td>
+        <td>11:00 AM</td>
+        <td>12:00 PM</td>
+        <td>1:00 PM</td>
+        <td>2:00 PM</td>
+        <td>3:00 PM</td>
+        <td>4:00 PM</td>
+        <td>5:00 PM</td>
+        <td>6:00 PM</td>
+        <td>Total</td>
+      </tr>
+
+      <tr>
+        <td>Downtown</td>
+      </tr>
+      <tr>
+        <td>Capitol Hill</td>
+      </tr>
+      <tr>
+        <td>South Lake Union</td>
+      </tr>
+      <tr>
+        <td>Wedgewood</td>
+      </tr>
+      <tr>
+        <td>Ballard</td>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody> 
+    </table>
+  
+<script src='donut_location.js'></script>
+
+</body>
+</html>
