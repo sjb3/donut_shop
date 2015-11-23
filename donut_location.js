@@ -1,78 +1,74 @@
 
-function Donutshop(place,min,max,avgDonutsPerCust,totalHours) {
+function Donutshop(place,min,max,avgDonutsPerCust) {
   this.place = place;//franchise location
   this.min = min;//min # of customers per Hr
   this.max = max;//max # of customers per Hr
-  // this.minSale = minSale;
-  // this.maxSale = maxSale;
   this.avgDonutsPerCust = avgDonutsPerCust;//avg donuts sale per customers per hr
-  this.totalHours = totalHours;
-
   this.hourlySale = [];//Stores individual hourlyTotal values
-  this.dailyTotal = 0;//Gets fed by hourlyTotal 
-  this.grandTotal = 0;//grandTOTAL
-  //this.hourlyAvgSale = [];
-  //this.hours = 0;
-  //this.place = ['downtown', 'capitolHill', 'slu','wedgewood','ballard'];
-//11/19
-//   var hours = ["Location", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "Total"];
+ 
+  this.Donutshop2 = function() {//11/19
+   //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+    var hours;
+    var bizHours = hours.length - 1;
+    var table = document.getElementsByTagName('table')[0];
+    var row = table.insertRow(1);
+    row.insertCell(0).innerHTML = this.place;
 
-//   //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-//   var bizHours = hours.length - 1;
-//   var table = document.getElementsByTagName('table')[0];
-//   var row = table.insertRow(1);
-//   row.insertCell(0).innerHTML = this.place;
+  };
+//??????????????????????????????????????????????????
+// // Generate random number of customers between minCustPerHour and MaxCustPerHour
+//   this.hrlyCust = function(){ //generate hourly customers
+//     return Math.floor(Math.random()*((this.max-this.min)+1)+this.min);
+//   };
+  
+// // Calculate donuts sold per hour
 
+//   this.donutSalehr = function(){//calculate hourly sales
+    
+//     for(i=0; i<11; i++){
+//       this.hourlySale = Math.floor(this.hrlyCust()*this.avgDonutsPerCust);
+//       this.dayTotal.push(this.hourlySale);
+//     };
+// // Calculate total donuts sold per day
 
-// //??????????????????????????????????????????????????
-// for(var i=1; i < bizHours-1; i++){
+//   this.dailyFinal = function(){//adding up donutSalehr becomes dailyFinal
+//     for (i=0;i<11;i++){
+//       this.dailyFinal+= this.donutSalehr;
+//     }
+//   };    
+
 
   this.randomHrlyCust = function(){//generates hourly customers
     return Math.floor(Math.random()*((this.max-this.min)+1)+this.min);
     }
 
-  this.hourlyAvgSale = function(){
+
+   this.hourlyAvgSale = function(){
     this.grandTotal = 0;
     for(i=0; i<11; i++){
-      this.grandTotal = this.randomHrlyCust()*this.avgDonutsPerCust;//prev.grandTotal
+      this.grandTotal = Math.floor(this.randomHrlyCust()*this.avgDonutsPerCust);//prev.grandTotal
     //this.dailyTotal += (this.randomHrlyCust()*this.avgDonutsPerCust);  
     //var temp = this.randomHrlyCust()*this.avgDonutsPerCust;
       this.hourlySale.push(this.grandTotal);//dailyTotal
 
-   this.dailyTotal += this.hourlySale;
     };
-  //  }
+    }
   // row.insertCell(i).innerHTML = hourlySale.toFixed(0);
 
-  // row.insertCell(bizHours).innerHTML = dailyTotal.toFixed(0);
+  row.insertCell(bizHours).innerHTML = dailyTotal.toFixed(0);
 
 
 this.total = function(){
 
   for(i=0; i<11;i++){ 
     this.dailyTotal += this.hourlySale[i];
+    // this.dailyTotal.push(this.dailyTotal);
   }
+this.hourlySale.push(this.dailyTotal);
+// console.log('total', this.hourlySale);
 };
-};
+//};
 }
-//?????????????????????????????????????????????
-// Table Header: location and hours of operation
-// var hours = ["Location", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM", "6:00 PM", "Total"];
-
-// // create table with location, hours of operation, and Total headings
-// var myTable = document.createElement('table');
-// var row = document.createElement('tr');
-// hours.forEach(function(hour) {
-//   var th = document.createElement('th');
-//   th.textContent = hour;
-//   row.appendChild(th);
-//   myTable.appendChild(row);
-// });
-// // insert table to html body
-// document.body.appendChild(myTable);
-//????????????????????????????????????????????
-
-
 
 // Instantiate New Donutshop location objects:
    var downtown = new Donutshop ("Downtown", 8, 43, 4.5, 11);
@@ -83,36 +79,58 @@ this.total = function(){
 
 
 
+
                     
 
  Donutshop.prototype.render = function() {
- 
-  this.hourlyAvgSale();
+  
+  // console.log('prerender', this.hourlySale);
+
+  // this.hourlyAvgSale();
+
+  // console.log('render', this.hourlySale);
   var tableElement = document.createElement(tableElement);
     
   var trElement = document.createElement('tr');
     
-    for (var i = 0; i < 11; i++) {
-      
-     var tdElement = document.createElement('td');
-     tdElement.textContent = time[i];
-     trElement.appendChild(tdElement);
-    }
-      //body = document.getElementById('table').appendChild('td');
- 
-     tableElement.appendChild(trElement);
-     document.body.appendChild(tableElement);
-  //var myTable = document.getElementById('donutTable');
+  var tdElement = document.createElement('td');
+    tdElement.innerHTML = this.dailyTotal;//this.dailyTotal
+    tdElement.innerHTML = this.place;//11/20
+    trElement.appendChild(tdElement);//11/20 
+    //11/19 tdElement.textContent = time[i];
+    //11/19 trElement.appendChild(tdElement);
+    for (var i=0; i<12;i++){
 
+      td = document.createElement('td');
+    //11/19 td.innerHTML = this.dailyTotal;
+      // console.log('here: ' + this.hourlySale);
+      td.innerHTML = this.hourlySale[i];//new this....[i]
+      trElement.appendChild(td);
+    
+      body = document.getElementById('body').appendChild(trElement);
+
+    };
+
+ 
  };
 
-console.log(downtown.hourlyAvgSale());
-console.log(downtown.randomHrlyCust());
-console.log(downtown.hourlySale);
-downtown.total();
-console.log(downtown.dailyTotal);
-downtown.render();
 
+
+// console.log(downtown.hourlyAvgSale());
+// console.log(downtown.randomHrlyCust());
+// console.log(downtown.hourlySale);
+// downtown.total();
+// console.log(downtown.dailyTotal);
+// downtown.render();
+
+// var storeArrays = [];
+// storeArrays.push(downtown.dailyTotal);
+// storeArrays.push(capitolHill.dailyTotal);
+// storeArrays.push(slu.dailyTotal);
+// storeArrays.push(wedgewood.dailyTotal);
+// storeArrays.push(ballard.dailyTotal);
+// console.log(storeArrays.dailyTotal);
+//storeArray.push(newPlace);
 
 // console.log(capitolHill.hourlyAvgSale());
 // console.log(capitolHill.randomHrlyCust());
@@ -142,12 +160,6 @@ downtown.render();
 // console.log(ballard.dailyTotal);
 // ballard.render();
 
-// var shopArray = [];
-// shopArray.push(downtown);
-// shopArray.push(capitolHill);
-// shopArray.push(slu);
-// shopArray.push(wedgewood);
-// shopArray.push(ballard);
 
  
 
