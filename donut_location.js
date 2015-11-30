@@ -7,6 +7,8 @@ function Donutshop(place,min,max,avgDonutsPerCust){
   this.avgDonutsPerCust = avgDonutsPerCust;//avg donut sale per hr
   this.hourlySale = [];//store indi hourly sale value
   this.dailyTotal = [];
+  //this.total = [];
+
 //1) Generate randome # of customers between minCustPerhr and maxCustPerhr
 
   this.hrlyCust = function(){
@@ -24,7 +26,7 @@ function Donutshop(place,min,max,avgDonutsPerCust){
 //3) Calculate total donuts sold per day
   total = 0;
 
-  this.dailyFinal  = function(){
+  this.dailyFinal = function(){
     for (i=0; i<11; i++){
       
       total += this.hourlySale[i];
@@ -40,11 +42,10 @@ function Donutshop(place,min,max,avgDonutsPerCust){
   var slu = new Donutshop ("South Lake Union", 9, 23, 6.33, 11);
   var wedgewood = new Donutshop ("Wedgewood", 2, 28, 1.25, 11);
   var ballard = new Donutshop ("Ballard", 8, 58, 3.75, 11);
-
-
+  
 Donutshop.prototype.render = function(){
 
-  var tableElement = document.createElement(tableElement);
+  //var tableElement = document.createElement(tableElement);
 
   var trElement = document.createElement('tr');
 
@@ -54,13 +55,21 @@ Donutshop.prototype.render = function(){
     tdElement.innerHTML = this.place;
     trElement.appendChild(tdElement);
 
-    for(var i=0; i<12; i++){
+  
+
+    for(var i=0; i<11; i++){
       td = document.createElement('td');
       td.innerHTML = this.hourlySale[i];
       trElement.appendChild(td);
 
-      body = document.getElementById('body').appendChild(trElement);
+
+
     };
+    td = document.createElement('td');
+    td.innerHTML = this.dailyTotal;
+    trElement.appendChild(td);
+    body = document.getElementById('body').appendChild(trElement);
+
 };
 
 console.log(downtown.hrlyCust());
@@ -99,10 +108,15 @@ console.log(ballard.dailyTotal);
 ballard.render();
 
 
+var storeArrays = [];
+storeArrays.push(downtown);
+storeArrays.push(capitolHill);
+storeArrays.push(slu);
+storeArrays.push(wedgewood);
+storeArrays.push(ballard);
 
 
-
-
+// storeArrays.push(newPlace);
 
 
 
